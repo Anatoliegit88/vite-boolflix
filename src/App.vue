@@ -13,10 +13,11 @@ export default {
   created() {
     axios
       .get(
-        "https://api.themoviedb.org/3/search/movie?api_key=79fa0912b6192336b0602a46a7d5350f&query="
+        "https://api.themoviedb.org/3/search/movie?api_key=79fa0912b6192336b0602a46a7d5350f&query=title/title_originale/original_language/vote_average"
       )
       .then((resp) => {
         this.store.movies = resp.data.results;
+        console.log(store.movies);
       });
   },
 };
