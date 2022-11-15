@@ -14,6 +14,5 @@ export default {
   <div>
     <input type="search" v-model="store.newSearch" />
     <button @click="$emit('performSearch')">Search</button>
-    <AppCard :card="movie" />
   </div>
 </template>

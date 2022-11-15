@@ -4,5 +4,5 @@ export const store = reactive({
   series: [],
   newSearch: "",
   apiKey: "79fa0912b6192336b0602a46a7d5350f",
-  apiURL: "https://api.themoviedb.org/3/search",
+  apiURL: "https://api.themoviedb.org/3/search/",
 });
