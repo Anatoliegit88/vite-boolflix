@@ -1,6 +1,8 @@
 <script>
 import axios from "axios";
 import AppCard from "./components/AppCard.vue";
+import AppMain from "./components/AppMain.vue";
+import AppSearch from "./components/AppSearch.vue";
 import { store } from "./store";
 export default {
   data() {
@@ -22,7 +24,29 @@ export default {
   //     this.newMovies(paramsObj);
   //     this.newSeries(paramsObj);
   //   },
-  //   newMovies(paramsObj) {},
+  //   newMovies(paramsObj) {
+  //     axios
+  //       .get(`${this.store.apiURL}movie`, {
+  //         params: paramsObj,
+  //       })
+  //       .then((resp) => {
+  //         this.store.movies = resp.data.results;
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   },
+  //   newSeries(paramsObj) {
+  //     axios
+  //       .get(`${this.store.apiURL}tv`, {
+  //         params: paramsObj,
+  //       })
+  //       .then((resp) => {
+  //         this.store.movies = resp.data.results;
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
   // },
   created() {
     axios
@@ -38,13 +62,9 @@ export default {
 </script>
 
 <template>
-  <div>
-    <input v-model="newSearch" type="text" />
-    <button @click="ricerca">search</button>
-    <div v-for="movie in store.movies">
-      <AppCard :card="movie" />
-    </div>
-  </div>
+  <AppCard />
+  <AppMain />
+  <AppSearch />
 </template>
 
 <style lang="scss"></style>
