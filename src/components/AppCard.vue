@@ -4,22 +4,36 @@ export default {
   props: {
     card: Object,
   },
+  data() {
+    return {
+      availableFlags: ["en", "it"],
+    };
+  },
+  computed: {
+    getTitle() {
+      return this.card.title ? this.card.title : this.card.title;
+    },
+    getOriginalTitle() {
+      return this.card.original_title
+        ? this.card.original_title
+        : this.card.original_title;
+    },
+  },
 };
 </script>
 
 <template>
-  <h2>title</h2>
   <div class="conatainer">
-    {{ card.vote_average }}
-    {{ card.original_title }}
-    <img :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`" alt="" />
+    <h2>{{ card.original_title }}</h2>
+    <div>
+      <img
+        v-if="availableFlags.includes(card.original_language)"
+        :src="`https://image.tmdb.org/t/p/w342/${card.poster_path}`"
+        alt="" />
+      <p>{{ card.vote_average }} <i class="fa-solid fa-star"></i></p>
+      <p>{{ card.original_title }}</p>
+    </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.container {
-  width: calc(100% / 4 - 20px);
-  display: flex;
-  flex-wrap: wrap;
-}
-</style>
+<style lang="scss" scoped></style>

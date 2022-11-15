@@ -13,17 +13,25 @@ export default {
     AppCard,
   },
 
-  methods: {
-    ricerca() {},
-  },
+  // methods: {
+  //   ricerca() {
+  //     const paramsObj = {
+  //       api_key: this.store.apiKey,
+  //       query: this.store.newSearch,
+  //     };
+  //     this.newMovies(paramsObj);
+  //     this.newSeries(paramsObj);
+  //   },
+  //   newMovies(paramsObj) {},
+  // },
   created() {
     axios
       .get(
-        "https://api.themoviedb.org/3/search/movie?api_key=79fa0912b6192336b0602a46a7d5350f&query=movie"
+        "https://api.themoviedb.org/3/search/movie?api_key=79fa0912b6192336b0602a46a7d5350f&query=Bella"
       )
       .then((resp) => {
         this.store.movies = resp.data.results;
-        console.log(this.store.movies);
+        // console.log(this.store.movies);
       });
   },
 };
@@ -39,4 +47,4 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style lang="scss"></style>
